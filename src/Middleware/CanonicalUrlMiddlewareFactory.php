@@ -1,6 +1,6 @@
 <?php
 
-namespace AdvancedIdeasMechanics\Middleware;
+namespace AdvancedIdeasMechanics\MezzioCanonicalUrl\Middleware;
 
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;

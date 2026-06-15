@@ -18,7 +18,7 @@ class ConfigProvider
         return [
             'factories' => [
                 // Point the middleware directly to its dedicated factory class string
-                AdvancedIdeasMechanics\Middleware\CanonicalUrlMiddleware::class => AdvancedIdeasMechanics\Middleware\CanonicalUrlMiddlewareFactory::class,
+                Middleware\CanonicalUrlMiddleware::class => Middleware\CanonicalUrlMiddlewareFactory::class,
             ],
         ];
     }

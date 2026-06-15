@@ -1,6 +1,6 @@
 {
   "name": "advancedideasmechanics/mezzio-canonical-url",
-  "description": "Automated PSR-7 Canonical URL middleware for Mezzio applications using Laminas-View.",
+  "description": "PSR-7 Canonical URL middleware for Mezzio applications.",
   "type": "library",
   "license": "MIT",
   "keywords": [

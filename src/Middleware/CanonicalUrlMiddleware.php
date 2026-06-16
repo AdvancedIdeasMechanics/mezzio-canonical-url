@@ -2,6 +2,7 @@
 
 namespace AdvancedIdeasMechanics\MezzioCanonicalUrl\Middleware;
 
+use Mezzio\Router\RouteResult;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,6 +23,19 @@ class CanonicalUrlMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        $routeResult = $request->getAttribute(RouteResult::class);
+        if ($routeResult === null || $routeResult->isFailure()) {
+            return $handler->handle($request);
+        }
+
+        if ($request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest') {
+            return $handler->handle($request);
+        }
+
+        if (str_contains($request->getHeaderLine('Accept'), 'application/json')) {
+            return $handler->handle($request);
+        }
+
         $uri  = $request->getUri();
         $host = $uri->getHost();
 

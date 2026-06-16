@@ -7,11 +7,17 @@ PSR-7 Canonical URL middleware for Mezzio applications.
 
 #### Use ####
 
-Update pipeline.php to use Middleware.
+For pipeline.php Middleware Use.
 
 Recommend placing between $app->pipe(RouteMiddleware::class); and $app->pipe(ImplicitHeadMiddleware::class);
 
 `$app->pipe(AdvancedIdeasMechanics\MezzioCanonicalUrl\Middleware\CanonicalUrlMiddleware::class);`
+
+For route.php Middleware use.
+
+`use AdvancedIdeasMechanics\MezzioCanonicalUrl\Middleware\CanonicalUrlMiddleware;`
+
+`$app->get('/', [CanonicalUrlMiddleware:class, App\Handler\HomePageHandler::class], 'home');`
 
 Set below in the templates\layout\default.phtml
 
